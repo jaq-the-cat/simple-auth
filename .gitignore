@@ -1,0 +1,8 @@
+**/node_modules
+dist/
+**/**/*.log
+node_modules/
+build/
+logs/
+
+src/app/.notes
