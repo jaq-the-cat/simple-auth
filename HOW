@@ -1,0 +1,19 @@
+TOKEN: '{server secret}{user id}{user role id}' in SHA512 hash
+
+LOG IN REQUESTS
+[Client] if not authenticated:
+  [Client] check if previously logged in and use those credentials
+  -- IF NOT --
+  [Client] attempt to login with credentials
+  [Server] if successful, send user data and token
+  [Client] securely store user data and token
+
+LOGGED IN REQUESTS
+[Client] sends request containing
+  token
+  user id
+  user role id
+[Server]
+  verifies received token with received user data
+  if mismatch, send 400 Bad Request response
+  if not, send proper response
